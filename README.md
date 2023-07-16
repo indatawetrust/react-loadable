@@ -4,12 +4,12 @@
 
 ## Install
 
-`yarn add @caixue/react-loadable or npm install @caixue/react-loadable`
+`yarn add @cond/react-loadable or npm install @cond/react-loadable`
 
 ## Usage
 
 ```javascript
-import Loadable from '@caixue/react-loadable';
+import Loadable from '@cond/react-loadable';
 import Loading from './my-loading-component';
 
 const LoadableComponent = Loadable({
