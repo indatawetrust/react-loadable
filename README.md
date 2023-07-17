@@ -1,10 +1,15 @@
 - [中文](https://github.com/cx690/react-loadable/blob/main/README_zh_CN.md "中文")
 
-`A higher order component for loading components with dynamic imports.Support vite and webpack.`
+A higher order component for loading components with dynamic imports. Support vite and webpack.
 
 ## Install
 
-`yarn add @cond/react-loadable or npm install @cond/react-loadable`
+```
+yarn add @cond/react-loadable
+```
+```sh
+npm install @cond/react-loadable
+```
 
 ## Usage
 
@@ -14,11 +19,12 @@ import Loading from './my-loading-component';
 
 const LoadableComponent = Loadable({
   loader: () => import('./my-component1'),
-  loading: Loading,//your personal loading conpontent
-  timeout: 20000,//timeout(ms) default 10000
+  loading: Loading,
+  timeout: 20000,
 });
+```
 
-//or
+```javascript
 const LoadableComponent = Loadable(() => import('./my-component1'));
  
 export default class App extends React.Component {
@@ -27,4 +33,19 @@ export default class App extends React.Component {
   }
 }
 
+```
+
+## Customizing rendering
+
+```javascript
+export const LoadableComponent = Loadable({
+  loader: () => import('./my-component1'),
+  loading: Loading,
+  render(loaded, props) {
+    const Component = loaded;
+    const ref = props.forwardRef || undefined;
+
+    return <Component {...props} ref={ref} />;
+  },
+});
 ```
